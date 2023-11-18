@@ -1,16 +1,22 @@
 import { useState } from "react";
 
 function App() {
-  const [list, setList] = useState(["밥먹기", "코딩하기"]);
+  const [list, setList] = useState([
+    { id: 1, value: "밥먹기" },
+    { id: 2, value: "코딩하기" },
+  ]);
   const [inputValue, setInputValue] = useState("");
 
   const addToList = () => {
     // 이전 값 앞에 새로운 값 추가
     setList((prevList) => {
-      // 새로운 항목이 추가될때마다,
-      // 항목 렌더링 시, 기존 항목의 key 값이 +1이 되기 때문에
-      // 모든 항목을 다시 그린다.
-      return [inputValue, ...prevList];
+      return [
+        {
+          id: list.length + 1,
+          value: inputValue,
+        },
+        ...prevList,
+      ];
     });
     setInputValue("");
   };
@@ -22,7 +28,7 @@ function App() {
       <ul>
         {list.map((item) => {
           // 중복된 키로 인한 얘기치 못한 버그 발생
-          return <li key={item}>{item}</li>;
+          return <li key={item.id}>{item.value}</li>;
         })}
       </ul>
     </>
