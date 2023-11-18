@@ -21,7 +21,12 @@ function App() {
       <button onClick={addToList}>추가</button>
       <ul>
         {list.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return (
+            <div key={index}>
+              <li>{item}</li>
+              <input />
+            </div>
+          );
         })}
       </ul>
     </>
