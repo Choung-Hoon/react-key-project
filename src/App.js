@@ -22,7 +22,7 @@ function App() {
       <ul>
         {list.map((item, index) => {
           return (
-            <div key={index}>
+            <div key={item}>
               <li>{item}</li>
               <input />
             </div>
