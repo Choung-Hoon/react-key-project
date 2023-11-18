@@ -20,8 +20,9 @@ function App() {
       <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
       <button onClick={addToList}>추가</button>
       <ul>
-        {list.map((item, index) => {
-          return <li key={index}>{item}</li>;
+        {list.map((item) => {
+          // 중복된 키로 인한 얘기치 못한 버그 발생
+          return <li key={item}>{item}</li>;
         })}
       </ul>
     </>
